@@ -1,0 +1,43 @@
+<div class="list-container">
+  <a href="<%= notes_new_path %>" class="btn-add" id="add-btn"><i class="fa fa-plus-circle"></i></a>
+  <% @notes.each do |note| %>
+    <div class="list-item">
+      <i class="fa fa-times" id="delete-btn"></i>
+      <div class="row-content">
+        <div class="item-left">
+          <p class="item-title">
+            <%= note.title %>
+          </p>
+          <p class="subtitle">
+            <%= note.subtitle %>
+          </p>
+        </div>
+        <div class="item-right">
+          <p class="annotation">
+            <%= note.annotation %>
+          </p>
+        </div>
+      </div>
+      <div class="content">
+        <p class="content">
+          <%= note.body_content %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('a#add-btn').click(function() {
+      setupDeleteHandler();
+    });
+
+  });
+
+  function setupDeleteHandler() {
+    $('i#delete-btn').click(function() {
+      $(this).parent('.list-item').remove();
+    });
+  }
+</script>
