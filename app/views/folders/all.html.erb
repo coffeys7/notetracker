@@ -1,0 +1,27 @@
+
+<a href="<%= url_for new_folder_path %>" class="btn new-btn">
+  Add Folder
+</a>
+
+<table id="folders-table" class="order-table blue-table">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th># Notes</th>
+    <th>Edit</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @folders.each do |folder| %>
+      <tr>
+        <td><%= folder.title %></td>
+        <td><%= folder.description %></td>
+        <td><%= folder.notes.count rescue 0 %></td>
+        <td> <a href="<%= url_for edit_folder_path(folder) %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+        <td> <%= link_to 'X', folder,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
-  get 'notes/new'
 
-  get 'notes/edit'
-
-  get 'notes/all'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'folders#all'
 
   get 'notes/all' => 'notes#all'
-  root 'notes#all'
 
-  resources :notes
+  get 'folders/all' => 'folders#all'
+  get 'folders/notes' => 'folders#notes'
+
+  resources :notes, only: [:create, :new, :edit, :update, :destroy]
+  resources :folders, only: [:create, :new, :edit, :update, :destroy]
 
 end

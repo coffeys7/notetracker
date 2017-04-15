@@ -1,16 +1,18 @@
 class NotesController < ApplicationController
 
   def note_params
-    params.require(:note).permit(:title, :annotation, :subtitle, :body_content, :icon, :color)
+    params.require(:note).permit(:title, :content, :additional, :icon, :color)
   end
 
   def new
     @note = Note.new
+    @folders = Folder.all
     render '/notes/new'
   end
 
   def edit
     @note = Note.find(params[:id])
+    @folders = Folder.all
     render '/notes/edit'
   end
 

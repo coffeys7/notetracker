@@ -10,20 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170408043347) do
+ActiveRecord::Schema.define(version: 20170414124326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "folders", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.json     "style"
+    t.integer  "display_format"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "notes", force: :cascade do |t|
     t.string   "title"
-    t.string   "annotation"
-    t.string   "subtitle"
-    t.string   "body_content"
     t.string   "icon"
     t.string   "color"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "content"
+    t.string   "additional"
+    t.integer  "folder_id"
+    t.index ["folder_id"], name: "index_notes_on_folder_id", using: :btree
   end
 
 end
