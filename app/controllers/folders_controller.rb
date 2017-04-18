@@ -10,6 +10,18 @@ class FoldersController < ApplicationController
     render '/folders/notes'
   end
 
+  def new_note
+    @note = Note.new
+    @folder = Folder.find(params[:folder_id])
+    render '/notes/new'
+  end
+
+  def edit_note
+    @note = Note.find(params[:note_id])
+    @folder = Folder.find(params[:folder_id])
+    render '/notes/edit'
+  end
+
   def new
     @folder = Folder.new
     render '/folders/new'
@@ -21,7 +33,7 @@ class FoldersController < ApplicationController
   end
 
   def update
-    @folder = Note.find(params[:id])
+    @folder = Folder.find(params[:id])
     if @folder && @folder.update_attributes(folder_params)
       redirect_to '/folders/all'
     end

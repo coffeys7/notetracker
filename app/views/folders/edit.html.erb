@@ -1,4 +1,4 @@
-<%= bootstrap_form_for @folder, html:{ id:"edit-folder-form" } do |f| %>
+<%= bootstrap_form_for @folder, html:{ id:"edit-folder-form", class: "box-form" } do |f| %>
     <%= f.text_field :title %>
     <%= f.text_area :description %>
     <br/>

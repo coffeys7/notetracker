@@ -34,6 +34,10 @@ gem 'font-awesome-sass', '~> 4.7.0'
 
 gem 'browser'
 
+gem 'bootstrap', '4.0.0.alpha3.0'
+gem 'bootstrap_form'
+gem 'bootstrap-material-design'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

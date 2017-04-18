@@ -16,9 +16,13 @@
 
 @import 'color_schemes';
 @import 'font-awesome';
+@import 'font-awesome-sprockets';
+@import 'jquery-ui';
+@import "bootstrap";
 
 body, html {
   background-color: $flat-black-700;
+  padding: 2.0em 3.0em;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
@@ -38,22 +42,142 @@ body {
   height: 100vh;
 }
 
-table.order-table.blue-table {
+a.new-btn {
+  color: $flat-clouds;
+  border: none;
+  text-decoration: none;
+  background-color: $flat-nephritis;
+  padding: 0.5em 1.25em;
+  filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
+  &:hover {
+    background-color: lighten($flat-nephritis, 5%);
+    color: $flat-clouds;
+  }
+}
+
+a.icon-btn {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  &:hover {
+    color: white;
+  }
+}
+
+form.box-form {
+  width: 50%;
+  margin: 0 auto;
+  color: $flat-clouds;
+  text-align: center;
+  background-color: rgba(0,0,0,0.5);
+  padding: 2.5em;
+  border-radius: 0.75em;
+  filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
+  div.form-group {
+    text-align: left;
+  }
+  input[type="submit"] {
+    background-color: $flat-nephritis;
+    border: none;
+    color: $flat-clouds;
+    padding: 0.5em 1.25em;
+    &:hover {
+      background-color: lighten($flat-nephritis, 5%);
+    }
+  }
+}
+
+div.folders-container {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 2.0em;
+  .folder-box {
+    position: relative;
+    margin-right: 1.0em;
+    padding: 1.0em 1.5em;
+    padding-bottom: 0.5em;
+    background-color: rgba(0,0,0,0.5);
+    min-width: 250px;
+    max-width: 300px;
+    text-align: center;
+    border-radius: 0.75em;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
+    p.title {
+      color: $flat-clouds;
+      font-weight: bold;
+      font-size: 1.25em;
+    }
+    p.description {
+      color: $flat-clouds;
+      padding-top: 0.5em;
+      font-weight: lighter;
+      margin-bottom: 5em;
+    }
+    hr {
+      opacity: 0.2;
+      margin: 0.5em 0;
+      width: 100%;
+    }
+    a.icon-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    div.toolbar {
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      right: 5px;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      a.toolbar-item {
+        text-decoration: none;
+        color: $flat-clouds;
+        text-align: center;
+        flex-grow: 1;
+        padding: 0.5em;
+        &:hover {
+          //border: 1px solid $flat-clouds;
+          background-color: rgba($flat-clouds, 0.1);
+        }
+      }
+    }
+
+  }
+}
+
+table.order-table {
+  width: 100%;
+  margin-top: 2.0em;
+  background-color: $flat-clouds;
+  filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
   thead{
+    background-color: $flat-asbestos;
+    color: $flat-clouds;
     tr th{
       text-align:left;
       background-color:rgba(0,0,0,0.5);
       color:white;
-      padding:0.4em;
+      padding: 0.75em;
     }
   }
   tbody {
     tr {
       td {
-        font-size: .75rem;
-        border: 1px solid whitesmoke;
-        &.empty {
-          opacity: 0.5;
+        color: $flat-midnight-blue;
+        border: 1px solid rgba($flat-midnight-blue, 0.5);
+        padding: 0.75em;
+        &.edit > a {
+
+        }
+        &.delete > a {
+          color: $flat-alizarin;
+          text-decoration: none;
         }
       }
     }

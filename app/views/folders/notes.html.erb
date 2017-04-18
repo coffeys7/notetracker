@@ -1,14 +1,16 @@
 
-<a href="<%= url_for new_notes_path %>" class="btn new-btn">
+<a href="<%= "/folders/new_note?folder_id=#{ @folder.id }" %>" class="btn new-btn">
   Add Note
 </a>
 
-<table id="notes-table" class="order-table table">
+<table id="notes-table" class="order-table">
   <thead>
   <tr>
     <th>Title</th>
     <th>Content</th>
     <th>Additional</th>
+    <th>Edit</th>
+    <th>Delete</th>
   </tr>
   </thead>
   <tbody>
@@ -17,8 +19,8 @@
         <td><%= note.title %></td>
         <td><%= note.content %></td>
         <td><%= note.additional %></td>
-        <td> <a href="<%= url_for edit_note_path(note) %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-        <td> <%= link_to 'X', note,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="edit"> <a href="<%= "/folders/edit_note?note_id=#{ note.id }&folder_id=#{ @folder.id }" %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+        <td class="delete"> <%= link_to 'X', note,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
   </tbody>

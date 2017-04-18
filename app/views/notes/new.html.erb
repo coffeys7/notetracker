@@ -1,8 +1,8 @@
-<%= bootstrap_form_for @note, html:{ id:"new-note-form" } do |f| %>
+<%= bootstrap_form_for @note, html:{ id: "new-note-form", class: "box-form" } do |f| %>
     <%= f.text_field :title, label:"Title"%>
-    <%= f.text_area :subtitle, label:"Content"%>
-    <%= f.text_area :annotation, label:"Additional"%>
-    <%= f.collection_select :folder_id, @folders, :id, :name, include_blank: false, label:"Folder" %>
+    <%= f.text_area :content, label:"Content"%>
+    <%= f.text_area :additional, label:"Additional"%>
+    <input type="hidden" name="note[folder_id]" value="<%= @folder.id %>">
     <br/>
     <%= f.submit "Save" %>
 <% end %>

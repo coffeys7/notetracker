@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
 
   def note_params
-    params.require(:note).permit(:title, :content, :additional, :icon, :color)
+    params.require(:note).permit(:title, :content, :additional, :icon, :color, :folder_id)
   end
 
   def new
@@ -18,8 +18,9 @@ class NotesController < ApplicationController
 
   def update
     @note = Note.find(params[:id])
+    @folder = params[:note][:folder_id]
     if @note && @note.update_attributes(note_params)
-      redirect_to '/notes/all'
+      redirect_to '/folders/notes?id='+@folder
     end
   end
 
@@ -30,9 +31,15 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.create(note_params)
+    @folder = params[:note][:folder_id]
     if @note.save
-      redirect_to '/notes/all'
+      redirect_to '/folders/notes?id='+@folder
     end
+  end
+
+  def destroy
+    @note = Note.find(params[:id])
+    @note.destroy
   end
 
 end

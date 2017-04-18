@@ -3,25 +3,24 @@
   Add Folder
 </a>
 
-<table id="folders-table" class="order-table blue-table">
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th># Notes</th>
-    <th>Edit</th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
+<div class="folders-container">
   <% @folders.each do |folder| %>
-      <tr>
-        <td><%= folder.title %></td>
-        <td><%= folder.description %></td>
-        <td><%= folder.notes.count rescue 0 %></td>
-        <td> <a href="<%= url_for edit_folder_path(folder) %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-        <td> <%= link_to 'X', folder,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="folder-box">
+      <p class="title">
+        <%= folder.title %>
+      </p>
+      <hr>
+      <p class="description">
+        <%= folder.description %>
+      </p>
+      <div class="toolbar">
+        <a class="toolbar-item edit-btn" href="<%= url_for edit_folder_path(folder) %>">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </a>
+        <a class="toolbar-item open-btn" href="<%= "/folders/notes?id=#{ folder.id }" %>">
+          <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
   <% end %>
-  </tbody>
-</table>
+</div>
