@@ -1,7 +1,7 @@
 <%= bootstrap_form_for @hour_note, html:{ id:"edit-hour-note-form", class: "box-form" } do |f| %>
-    <%= f.date_field :day, value: Time.now.strftime("%Y-%m-%d") %>
-    <%= f.time_field :start_time, value: Time.now.strftime("%H:%M") %>
-    <%= f.time_field :end_time, value: Time.now.strftime("%H:%M") %>
+    <%= f.date_field :day, value: @hour_note.day.strftime("%Y-%m-%d") %>
+    <%= f.time_field :start_time, value: @hour_note.start_time.strftime("%H:%M") %>
+    <%= f.time_field :end_time, value: @hour_note.end_time.strftime("%H:%M") %>
     <%= f.text_area :additional_info %>
     <%= f.check_box :completed %>
     <br/>
