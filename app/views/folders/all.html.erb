@@ -15,6 +15,7 @@
         <%= folder.description %>
       </p>
       <div class="toolbar">
+        <%= link_to 'X', folder, class: "toolbar-item delete-btn", method: :delete, data: { confirm: 'Are you sure?' } %>
         <a class="toolbar-item edit-btn" href="<%= url_for edit_folder_path(folder) %>">
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;
           Edit

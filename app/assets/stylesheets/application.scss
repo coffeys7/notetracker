@@ -157,7 +157,6 @@ div.folders-container {
       bottom: 5px;
       left: 5px;
       right: 5px;
-
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -170,6 +169,9 @@ div.folders-container {
         padding: 0.5em;
         border: 1px solid rgba($flat-clouds, 0.25);
         font-weight: lighter;
+        &.delete-btn {
+          color: $flat-alizarin;
+        }
         &:hover {
           //border: 1px solid $flat-clouds;
           background-color: rgba($flat-clouds, 0.1);

@@ -69,4 +69,16 @@ class FoldersController < ApplicationController
     end
   end
 
+  def destroy
+    @folder = Folder.find(params[:id])
+    @folder.hour_notes.each do |note|
+      note.destroy
+    end
+    @folder.todo_notes.each do |note|
+      note.destroy
+    end
+    @folder.destroy
+    redirect_to '/folders/all'
+  end
+
 end
