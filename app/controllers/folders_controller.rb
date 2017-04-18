@@ -1,25 +1,43 @@
 class FoldersController < ApplicationController
 
   def folder_params
-    params.require(:folder).permit(:title, :description, :display_format)
+    params.require(:folder).permit(:title, :description, :note_type)
   end
 
-  def notes
+  def hour_notes
     @folder = Folder.find(params[:id])
-    @notes = @folder.notes
-    render '/folders/notes'
+    @hour_notes = @folder.hour_notes
+    render '/folders/hour_notes'
   end
 
-  def new_note
-    @note = Note.new
-    @folder = Folder.find(params[:folder_id])
-    render '/notes/new'
+  def todo_notes
+    @folder = Folder.find(params[:id])
+    @todo_notes = @folder.todo_notes
+    render '/folders/todo_notes'
   end
 
-  def edit_note
-    @note = Note.find(params[:note_id])
+  def new_hour_note
+    @hour_note = HourNote.new
     @folder = Folder.find(params[:folder_id])
-    render '/notes/edit'
+    render '/folders/new_hour_note'
+  end
+
+  def edit_hour_note
+    @hour_note = HourNote.find(params[:note_id])
+    @folder = Folder.find(params[:folder_id])
+    render '/folders/edit_hour_note'
+  end
+
+  def new_todo_note
+    @todo_note = TodoNote.new
+    @folder = Folder.find(params[:folder_id])
+    render '/folders/new_todo_note'
+  end
+
+  def edit_todo_note
+    @todo_note = TodoNote.find(params[:note_id])
+    @folder = Folder.find(params[:folder_id])
+    render '/folders/edit_todo_note'
   end
 
   def new

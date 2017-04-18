@@ -1,0 +1,2 @@
+module HourNotesHelper
+end

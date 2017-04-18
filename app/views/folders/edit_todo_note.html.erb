@@ -1,0 +1,10 @@
+<%= bootstrap_form_for @hour_note, html:{ id:"edit-todo-note-form", class: "box-form" } do |f| %>
+    <%= f.text_field :title %>
+    <%= f.text_area :additional_info %>
+    <%= f.number_field :priority %>
+    <%= f.check_box :completed %>
+    <br/>
+    <input type="hidden" name="todo_note[folder_id]" value="<%= @folder.id %>">
+    <%= f.submit "Save" %>
+<% end %>
+

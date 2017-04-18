@@ -1,8 +1,0 @@
-<%= bootstrap_form_for @note, html:{ id: "edit-note-form", class: "box-form" } do |f| %>
-    <%= f.text_field :title, label:"Title"%>
-    <%= f.text_area :content, label:"Content"%>
-    <%= f.text_area :additional, label:"Additional"%>
-    <input type="hidden" name="note[folder_id]" value="<%= @folder.id %>">
-    <br/>
-    <%= f.submit "Save" %>
-<% end %>

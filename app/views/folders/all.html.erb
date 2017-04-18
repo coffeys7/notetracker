@@ -1,5 +1,6 @@
 
-<a href="<%= url_for new_folder_path %>" class="btn new-btn">
+<a href="<%= url_for new_folder_path %>" class="btn link-btn new-btn">
+  <i class="fa fa-plus"></i>&nbsp;&nbsp;
   Add Folder
 </a>
 
@@ -15,11 +16,20 @@
       </p>
       <div class="toolbar">
         <a class="toolbar-item edit-btn" href="<%= url_for edit_folder_path(folder) %>">
-          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;
+          Edit
         </a>
-        <a class="toolbar-item open-btn" href="<%= "/folders/notes?id=#{ folder.id }" %>">
-          <i class="fa fa-folder-open-o" aria-hidden="true"></i>
-        </a>
+        <% if folder.note_type == "hours" %>
+          <a class="toolbar-item open-btn" href="<%= "/folders/hour_notes?id=#{ folder.id }" %>">
+            <i class="fa fa-folder-open-o" aria-hidden="true"></i>&nbsp;&nbsp;
+            Open
+          </a>
+        <% elsif folder.note_type == "todo" %>
+          <a class="toolbar-item open-btn" href="<%= "/folders/todo_notes?id=#{ folder.id }" %>">
+            <i class="fa fa-folder-open-o" aria-hidden="true"></i>&nbsp;&nbsp;
+            Open
+          </a>
+        <% end %>
       </div>
     </div>
   <% end %>

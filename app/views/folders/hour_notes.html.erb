@@ -1,0 +1,53 @@
+
+<h3 class="folder-title"><%= @folder.title %></h3>
+
+<a href="<%= "/folders/new_hour_note?folder_id=#{ @folder.id }" %>" class="btn link-btn new-btn">
+  <i class="fa fa-plus"></i>&nbsp;&nbsp;
+  Add Hours
+</a>
+
+<a href="<%= url_for root_path %>" class="btn link-btn root-btn">
+  <i class="fa fa-folder-o"></i>&nbsp;&nbsp;
+  Folders
+</a>
+
+<table id="hour-notes-table" class="order-table">
+  <thead>
+  <tr>
+    <th>Day</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+    <th>Total</th>
+    <th>Additional Info</th>
+    <th class="center">Completed</th>
+    <th class="center">Edit</th>
+    <th class="center">Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @hour_notes.each do |hour_note| %>
+      <tr>
+        <td><%= hour_note.day.strftime("%A, %b %d") %></td>
+        <td><%= hour_note.start_time.strftime("%I:%M %p") %></td>
+        <td><%= hour_note.end_time.strftime("%I:%M %p") %></td>
+        <td><%= time_difference(hour_note.start_time, hour_note.end_time) %></td>
+        <td class="info"><%= hour_note.additional_info %></td>
+        <td class="center"><%= hour_note.completed? ? "Yes" : "No" %></td>
+        <td class="edit center"> <a href="<%= "/folders/edit_hour_note?note_id=#{ hour_note.id }&folder_id=#{ @folder.id }" %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+        <td class="delete center"> <%= link_to 'X', hour_note,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  <% unless @hour_notes.empty? %>
+    <tr class="total-row">
+      <td><strong>TOTAL</strong></td>
+      <td class="blank"></td>
+      <td class="blank"></td>
+      <td><strong><%= "#{ @folder.total_hours } hours" %></strong></td>
+      <td class="blank"></td>
+      <td class="blank"></td>
+      <td class="blank"></td>
+      <td class="blank"></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

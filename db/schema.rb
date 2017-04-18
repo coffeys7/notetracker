@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170414124326) do
+ActiveRecord::Schema.define(version: 20170418201922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,22 +18,35 @@ ActiveRecord::Schema.define(version: 20170414124326) do
   create_table "folders", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.json     "style"
-    t.integer  "display_format"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "note_type"
+    t.json     "fields"
   end
 
-  create_table "notes", force: :cascade do |t|
-    t.string   "title"
-    t.string   "icon"
-    t.string   "color"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "content"
-    t.string   "additional"
+  create_table "hour_notes", force: :cascade do |t|
+    t.string   "additional_info"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "folder_id"
-    t.index ["folder_id"], name: "index_notes_on_folder_id", using: :btree
+    t.datetime "day"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.boolean  "completed"
+    t.float    "total"
+    t.index ["folder_id"], name: "index_hour_notes_on_folder_id", using: :btree
+  end
+
+  create_table "todo_notes", force: :cascade do |t|
+    t.string   "title"
+    t.string   "additional_info"
+    t.string   "color"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "folder_id"
+    t.integer  "priority"
+    t.boolean  "completed"
+    t.index ["folder_id"], name: "index_todo_notes_on_folder_id", using: :btree
   end
 
 end

@@ -1,0 +1,29 @@
+
+<a href="<%= "/folders/new_todo_note?folder_id=#{ @folder.id }" %>" class="btn new-btn">
+  Add Todo Item
+</a>
+
+<table id="hour-notes-table" class="order-table">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Additional Info</th>
+    <th>Priority</th>
+    <th>Completed</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @todo_notes.each do |todo_note| %>
+      <tr>
+        <td><%= todo_note.title %></td>
+        <td><%= todo_note.additional_info %></td>
+        <td><%= todo_note.priority %></td>
+        <td><%= todo_note.completed? ? "Yes" : "No" %></td>
+        <td class="edit"> <a href="<%= "/folders/edit_todo_note?note_id=#{ todo_note.id }&folder_id=#{ @folder.id }" %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+        <td class="delete"> <%= link_to 'X', todo_note,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

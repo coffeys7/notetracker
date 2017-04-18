@@ -1,6 +1,12 @@
 <%= bootstrap_form_for @folder, html:{ id:"edit-folder-form", class: "box-form" } do |f| %>
     <%= f.text_field :title %>
     <%= f.text_area :description %>
+    <select name="folder[note_type]" >
+      <% (Folder.note_types.keys).each do |key| %>
+          <option value="<%= key %>"><%= key.capitalize %></option>
+      <% end %>
+    </select>
     <br/>
     <%= f.submit "Save" %>
 <% end %>
+

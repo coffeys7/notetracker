@@ -20,11 +20,6 @@
 @import 'jquery-ui';
 @import "bootstrap";
 
-body, html {
-  background-color: $flat-black-700;
-  padding: 2.0em 3.0em;
-}
-
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 $color-darkest: #114b54;
@@ -35,24 +30,44 @@ $color-lightest: #c6dabf;
 
 body, html {
   background-color: $color-darkest !important;
+  font-family: 'Ubuntu', sans-serif;
+  * {
+    font-family: 'Ubuntu', sans-serif !important;
+  }
+  i.fa {
+    font-family: 'FontAwesome' !important;
+  }
+  strong {
+    font-weight: 900;
+  }
 }
 
 body {
-  padding-top: 2em;
+  padding: 2.0em 3.0em;
   height: 100vh;
 }
 
-a.new-btn {
+a.link-btn {
   color: $flat-clouds;
   border: none;
   text-decoration: none;
-  background-color: $flat-nephritis;
   padding: 0.5em 1.25em;
   filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
-  &:hover {
-    background-color: lighten($flat-nephritis, 5%);
-    color: $flat-clouds;
+  &.new-btn {
+    background-color: $flat-nephritis;
+    &:hover {
+      background-color: lighten($flat-nephritis, 5%);
+      color: $flat-clouds;
+    }
   }
+  &.root-btn, &.cancel-btn {
+    background-color: $flat-concrete;
+    &:hover {
+      background-color: lighten($flat-concrete, 5%);
+      color: $flat-clouds;
+    }
+  }
+
 }
 
 a.icon-btn {
@@ -63,6 +78,11 @@ a.icon-btn {
   &:hover {
     color: white;
   }
+}
+
+.folder-title {
+  color: $flat-clouds;
+  text-align: center;
 }
 
 form.box-form {
@@ -79,12 +99,19 @@ form.box-form {
   }
   input[type="submit"] {
     background-color: $flat-nephritis;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
     border: none;
     color: $flat-clouds;
     padding: 0.5em 1.25em;
     &:hover {
       background-color: lighten($flat-nephritis, 5%);
     }
+  }
+  select {
+    color: black;
+    width: 50%;
+    padding: 0.5em;
+    margin-bottom: 1.5em;
   }
 }
 
@@ -141,19 +168,20 @@ div.folders-container {
         text-align: center;
         flex-grow: 1;
         padding: 0.5em;
+        border: 1px solid rgba($flat-clouds, 0.25);
+        font-weight: lighter;
         &:hover {
           //border: 1px solid $flat-clouds;
           background-color: rgba($flat-clouds, 0.1);
         }
       }
     }
-
   }
 }
 
 table.order-table {
   width: 100%;
-  margin-top: 2.0em;
+  margin: 2.0em 0;
   background-color: $flat-clouds;
   filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
   thead{
@@ -164,6 +192,9 @@ table.order-table {
       background-color:rgba(0,0,0,0.5);
       color:white;
       padding: 0.75em;
+      &.center {
+        text-align: center;
+      }
     }
   }
   tbody {
@@ -172,13 +203,27 @@ table.order-table {
         color: $flat-midnight-blue;
         border: 1px solid rgba($flat-midnight-blue, 0.5);
         padding: 0.75em;
-        &.edit > a {
-
+        &.center {
+          text-align: center;
         }
-        &.delete > a {
-          color: $flat-alizarin;
-          text-decoration: none;
+        &.edit {
         }
+        &.delete  {
+          a {
+            color: $flat-alizarin;
+            text-decoration: none;
+          }
+        }
+        &.info {
+          color: $flat-concrete;
+        }
+        &.blank {
+          background-color: rgba(0,0,0,0.25);
+        }
+      }
+      &.total-row {
+        border-top: 2px solid black;
+        font-size: 1.1em;
       }
     }
   }
@@ -198,4 +243,5 @@ table.order-table {
     border: none;
     box-shadow: none;
   }
+
 }
