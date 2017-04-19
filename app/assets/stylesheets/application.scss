@@ -136,6 +136,12 @@ div.folders-container {
       font-weight: bold;
       font-size: 1.25em;
     }
+    p.type {
+      color: $flat-clouds;
+      .fa {
+        font-size: 2.0em;
+      }
+    }
     p.description {
       color: $flat-clouds;
       padding-top: 0.5em;
@@ -201,10 +207,15 @@ table.order-table {
   }
   tbody {
     tr {
+      transition: background 0.3s ease;
       td {
         color: $flat-midnight-blue;
         border: 1px solid rgba($flat-midnight-blue, 0.5);
         padding: 0.75em;
+        select {
+          outline: none;
+          background-color: transparent;
+        }
         &.center {
           text-align: center;
         }

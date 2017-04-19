@@ -1,6 +1,12 @@
+<h3 class="folder-title"><%= @folder.title %></h3>
 
-<a href="<%= "/folders/new_todo_note?folder_id=#{ @folder.id }" %>" class="btn new-btn">
+<a href="<%= "/folders/new_todo_note?folder_id=#{ @folder.id }" %>" class="btn link-btn new-btn">
   Add Todo Item
+</a>
+
+<a href="<%= url_for root_path %>" class="btn link-btn root-btn">
+  <i class="fa fa-folder-o"></i>&nbsp;&nbsp;
+  Folders
 </a>
 
 <table id="hour-notes-table" class="order-table">
@@ -8,22 +14,52 @@
   <tr>
     <th>Title</th>
     <th>Additional Info</th>
-    <th>Priority</th>
-    <th>Completed</th>
-    <th>Edit</th>
-    <th>Delete</th>
+    <th class="center">Priority</th>
+    <th class="center">Completed</th>
+    <th class="center">Color</th>
+    <th class="center">Edit</th>
+    <th class="center">Delete</th>
   </tr>
   </thead>
   <tbody>
   <% @todo_notes.each do |todo_note| %>
-      <tr>
+      <tr id="<%= "todo_note-#{todo_note.id}" %>" style="<%= "background-color: #{ color_for(todo_note.color) || "transparent" }" %>">
         <td><%= todo_note.title %></td>
         <td><%= todo_note.additional_info %></td>
-        <td><%= todo_note.priority %></td>
-        <td><%= todo_note.completed? ? "Yes" : "No" %></td>
-        <td class="edit"> <a href="<%= "/folders/edit_todo_note?note_id=#{ todo_note.id }&folder_id=#{ @folder.id }" %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-        <td class="delete"> <%= link_to 'X', todo_note,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="center"><%= todo_note.priority %></td>
+        <td class="center"><%= todo_note.completed? ? "Yes" : "No" %></td>
+        <td>
+          <select class="colorselector" row-change="<%= todo_note.id %>">
+            <% %w(none yellow green blue red gray).each do |c| %>
+              <% if todo_note.color == c %>
+                <option value="<%= c %>" data-color="<%= c %>" actual-color="<%= color_for(c) %>" selected><%= c.capitalize %></option>
+              <% else %>
+                <option value="<%= c %>" data-color="<%= c %>" actual-color="<%= color_for(c) %>"><%= c.capitalize %></option>
+              <% end %>
+            <% end %>
+          </select>
+        </td>
+        <td class="edit center"> <a href="<%= "/folders/edit_todo_note?note_id=#{ todo_note.id }&folder_id=#{ @folder.id }" %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+        <td class="delete center"> <%= link_to 'X', todo_note,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
   </tbody>
 </table>
+
+<script>
+  $('.colorselector').on('change', function() {
+    var selected = $($(this)[0][$(this)[0].selectedIndex]);
+    var color = selected.attr('data-color');
+    var actualColor = selected.attr('actual-color');
+    var note_id = $(this).attr('row-change');
+    $.ajax({
+      url: '/todo_notes/update_note_color?note='+note_id+'&color='+color,
+      method: 'get',
+      success: function() {
+        $('#todo_note-'+note_id).css('background-color', actualColor);
+        selected.blur();
+      }
+    });
+    selected.blur();
+  });
+</script>

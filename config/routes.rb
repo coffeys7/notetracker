@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/folders/hour_notes' => 'folders#hour_notes'
   get '/folders/todo_notes' => 'folders#todo_notes'
 
+  get '/todo_notes/update_note_color' => 'todo_notes#update_note_color'
+
   get '/folders/new_hour_note' => 'folders#new_hour_note'
   get '/folders/edit_hour_note' => 'folders#edit_hour_note'
 

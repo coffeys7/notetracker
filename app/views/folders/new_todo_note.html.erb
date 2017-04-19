@@ -1,10 +1,11 @@
-<%= bootstrap_form_for @hour_note, html:{ id:"new-todo-note-form", class: "box-form" } do |f| %>
+<%= bootstrap_form_for @todo_note, html:{ id:"new-todo-note-form", class: "box-form" } do |f| %>
     <%= f.text_field :title %>
     <%= f.text_area :additional_info %>
     <%= f.number_field :priority %>
     <%= f.check_box :completed %>
     <br/>
     <input type="hidden" name="todo_note[folder_id]" value="<%= @folder.id %>">
+    <a class="btn link-btn cancel-btn" href="<%= "/folders/todo_notes?id=#{@folder.id}" %>" style="margin-right:0.5em;">Cancel</a>
     <%= f.submit "Save" %>
 <% end %>
 

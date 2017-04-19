@@ -22,8 +22,9 @@ class HourNotesController < ApplicationController
 
   def destroy
     @hour_note = HourNote.find(params[:id])
+    @folder_id = @todo_note.folder_id
     @hour_note.destroy
-    redirect_to root_path
+    redirect_to '/folders/hour_notes?id='+@folder_id.to_s
   end
 
 end

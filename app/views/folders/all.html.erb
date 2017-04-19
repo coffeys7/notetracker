@@ -10,6 +10,11 @@
       <p class="title">
         <%= folder.title %>
       </p>
+      <% if folder.hours? %>
+        <p class="type"><i class="fa fa-clock-o"></i></p>
+      <% else %>
+        <p class="type"><i class="fa fa-check-circle-o"></i></p>
+      <% end %>
       <hr>
       <p class="description">
         <%= folder.description %>
