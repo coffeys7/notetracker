@@ -10874,51 +10874,76 @@ a.bg-danger:focus, a.bg-danger:hover {
   }
 }
 
-/* line 24, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
-body, html {
-  background-color: #212121;
-  padding: 2.0em 3.0em;
-}
-
-/* line 37, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 32, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 body, html {
   background-color: #114b54 !important;
+  font-family: 'Ubuntu', sans-serif;
 }
-
+/* line 35, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+body *, html * {
+  font-family: 'Ubuntu', sans-serif !important;
+}
+/* line 38, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+body i.fa, html i.fa {
+  font-family: 'FontAwesome' !important;
+}
 /* line 41, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
-body {
-  padding-top: 2em;
-  height: 100vh;
+body strong, html strong {
+  font-weight: 900;
 }
 
 /* line 46, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
-a.new-btn {
+body {
+  padding: 2.0em 3.0em;
+  height: 100vh;
+}
+
+/* line 51, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+a.link-btn {
   color: #ecf0f1;
   border: none;
   text-decoration: none;
-  background-color: #27ae60;
   padding: 0.5em 1.25em;
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
 }
-/* line 53, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
-a.new-btn:hover {
+/* line 57, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+a.link-btn.new-btn {
+  background-color: #27ae60;
+}
+/* line 59, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+a.link-btn.new-btn:hover {
   background-color: #2cc36b;
   color: #ecf0f1;
 }
+/* line 64, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+a.link-btn.root-btn, a.link-btn.cancel-btn {
+  background-color: #95a5a6;
+}
+/* line 66, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+a.link-btn.root-btn:hover, a.link-btn.cancel-btn:hover {
+  background-color: #a3b1b2;
+  color: #ecf0f1;
+}
 
-/* line 59, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 74, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 a.icon-btn {
   color: white;
   cursor: pointer;
   text-decoration: none;
   outline: none;
 }
-/* line 64, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 79, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 a.icon-btn:hover {
   color: white;
 }
 
-/* line 69, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 84, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+.folder-title {
+  color: #ecf0f1;
+  text-align: center;
+}
+
+/* line 89, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 form.box-form {
   width: 50%;
   margin: 0 auto;
@@ -10929,30 +10954,38 @@ form.box-form {
   border-radius: 0.75em;
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
 }
-/* line 78, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 98, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 form.box-form div.form-group {
   text-align: left;
 }
-/* line 81, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 101, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 form.box-form input[type="submit"] {
   background-color: #27ae60;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
   border: none;
   color: #ecf0f1;
   padding: 0.5em 1.25em;
 }
-/* line 86, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 107, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 form.box-form input[type="submit"]:hover {
   background-color: #2cc36b;
 }
+/* line 111, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+form.box-form select {
+  color: black;
+  width: 50%;
+  padding: 0.5em;
+  margin-bottom: 1.5em;
+}
 
-/* line 92, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 119, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 div.folders-container {
   width: 90%;
   display: flex;
   flex-direction: row;
   margin-top: 2.0em;
 }
-/* line 97, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 124, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 div.folders-container .folder-box {
   position: relative;
   margin-right: 1.0em;
@@ -10965,32 +10998,40 @@ div.folders-container .folder-box {
   border-radius: 0.75em;
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
 }
-/* line 108, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 135, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 div.folders-container .folder-box p.title {
   color: #ecf0f1;
   font-weight: bold;
   font-size: 1.25em;
 }
-/* line 113, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 140, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+div.folders-container .folder-box p.type {
+  color: #ecf0f1;
+}
+/* line 142, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+div.folders-container .folder-box p.type .fa {
+  font-size: 2.0em;
+}
+/* line 146, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 div.folders-container .folder-box p.description {
   color: #ecf0f1;
   padding-top: 0.5em;
   font-weight: lighter;
   margin-bottom: 5em;
 }
-/* line 119, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 152, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 div.folders-container .folder-box hr {
   opacity: 0.2;
   margin: 0.5em 0;
   width: 100%;
 }
-/* line 124, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 157, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 div.folders-container .folder-box a.icon-btn {
   position: absolute;
   top: 10px;
   right: 10px;
 }
-/* line 129, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 162, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 div.folders-container .folder-box div.toolbar {
   position: absolute;
   bottom: 5px;
@@ -11001,58 +11042,94 @@ div.folders-container .folder-box div.toolbar {
   justify-content: center;
   align-items: center;
 }
-/* line 139, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 171, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 div.folders-container .folder-box div.toolbar a.toolbar-item {
   text-decoration: none;
   color: #ecf0f1;
   text-align: center;
   flex-grow: 1;
   padding: 0.5em;
+  border: 1px solid rgba(236, 240, 241, 0.25);
+  font-weight: lighter;
 }
-/* line 145, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 179, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+div.folders-container .folder-box div.toolbar a.toolbar-item.delete-btn {
+  color: #e74c3c;
+}
+/* line 182, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 div.folders-container .folder-box div.toolbar a.toolbar-item:hover {
   background-color: rgba(236, 240, 241, 0.1);
 }
 
-/* line 155, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 191, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 table.order-table {
   width: 100%;
-  margin-top: 2.0em;
+  margin: 2.0em 0;
   background-color: #ecf0f1;
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
 }
-/* line 160, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 196, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 table.order-table thead {
   background-color: #7f8c8d;
   color: #ecf0f1;
 }
-/* line 163, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 199, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 table.order-table thead tr th {
   text-align: left;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 0.75em;
 }
-/* line 172, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 204, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+table.order-table thead tr th.center {
+  text-align: center;
+}
+/* line 210, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+table.order-table tbody tr {
+  transition: background 0.3s ease;
+}
+/* line 212, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 table.order-table tbody tr td {
   color: #2c3e50;
   border: 1px solid rgba(44, 62, 80, 0.5);
   padding: 0.75em;
 }
-/* line 179, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
-table.order-table tbody tr td.delete > a {
+/* line 216, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+table.order-table tbody tr td select {
+  outline: none;
+  background-color: transparent;
+}
+/* line 220, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+table.order-table tbody tr td.center {
+  text-align: center;
+}
+/* line 226, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+table.order-table tbody tr td.delete a {
   color: #e74c3c;
   text-decoration: none;
 }
-/* line 187, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 231, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+table.order-table tbody tr td.info {
+  color: #95a5a6;
+}
+/* line 234, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+table.order-table tbody tr td.blank {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+/* line 238, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+table.order-table tbody tr.total-row {
+  border-top: 2px solid black;
+  font-size: 1.1em;
+}
+/* line 245, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 table.order-table textarea {
   height: 4em;
 }
-/* line 190, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 248, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 table.order-table a.settings i {
   font-size: 1.25em;
 }
-/* line 193, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
+/* line 251, /Users/samcoffey/Documents/Projects/Web/Rails/playground/app/assets/stylesheets/application.scss */
 table.order-table input.btn-save {
   width: auto;
   height: auto;
