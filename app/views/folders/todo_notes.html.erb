@@ -28,7 +28,7 @@
         <td><%= todo_note.additional_info %></td>
         <td class="center"><%= todo_note.priority %></td>
         <td class="center"><%= todo_note.completed? ? "Yes" : "No" %></td>
-        <td>
+        <td class="center">
           <select class="colorselector" row-change="<%= todo_note.id %>">
             <% %w(none yellow green blue red gray).each do |c| %>
               <% if todo_note.color == c %>
