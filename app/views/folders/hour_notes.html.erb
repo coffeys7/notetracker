@@ -26,7 +26,7 @@
   </thead>
   <tbody>
   <% @hour_notes.each do |hour_note| %>
-      <tr>
+      <tr style="<%= "background-color:#{ hour_note.completed? ? color_for('none') : color_for('yellow') }" %>">
         <td><%= hour_note.day.strftime("%A, %b %d") %></td>
         <td><%= hour_note.start_time.strftime("%I:%M %p") %></td>
         <td><%= hour_note.end_time.strftime("%I:%M %p") %></td>
