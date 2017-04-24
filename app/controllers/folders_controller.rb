@@ -6,14 +6,13 @@ class FoldersController < ApplicationController
 
   def hour_notes
     @folder = Folder.find(params[:id])
-    @hour_notes = @folder.hour_notes
-    @hour_notes.order('day')
+    @hour_notes = @folder.hour_notes.order('day')
     render '/folders/hour_notes'
   end
 
   def todo_notes
     @folder = Folder.find(params[:id])
-    @todo_notes.order('priority DESC, completed')
+    @todo_notes = @folder.todo_notes.order('priority DESC, completed')
     render '/folders/todo_notes'
   end
 
