@@ -1,7 +1,7 @@
 class TodoNotesController < ApplicationController
 
   def todo_note_params
-    params.require(:todo_note).permit(:title, :additional_info, :color, :priority, :folder_id)
+    params.require(:todo_note).permit(:title, :additional_info, :color, :priority, :folder_id, :completed)
   end
 
   def update
