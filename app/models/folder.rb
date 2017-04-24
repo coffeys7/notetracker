@@ -8,7 +8,9 @@ class Folder < ApplicationRecord
   def total_hours
     total = 0.0
     self.hour_notes.each do |hr_note|
-      total += (hr_note.end_time - hr_note.start_time)/3600
+      if hr_note.completed?
+        total += (hr_note.end_time - hr_note.start_time)/3600
+      end
     end
     return total
   end
